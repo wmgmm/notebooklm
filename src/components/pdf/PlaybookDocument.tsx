@@ -234,9 +234,9 @@ export function PlaybookDocument({ cases }: Props) {
     >
       {/* Cover */}
       <Page size="A4" style={[styles.page, styles.coverPage]}>
-        <Text style={styles.coverEyebrow}>NotebookLM</Text>
+        <Text style={styles.coverEyebrow}>The Matts &middot; NotebookLM</Text>
         <Text style={styles.coverTitle}>Your NotebookLM{'\n'}Prompt Playbook</Text>
-        <Text style={styles.coverSubtitle}>A personalised prompt toolkit from the{'\n'}Cardiff University workshop</Text>
+        <Text style={styles.coverSubtitle}>A personalised prompt collection from the{'\n'}Cardiff University workshop</Text>
         <View style={styles.coverDivider} />
         <View style={styles.coverCountRow}>
           <Text style={styles.coverCount}>{cases.length}</Text>
@@ -248,7 +248,7 @@ export function PlaybookDocument({ cases }: Props) {
       {/* Use case pages */}
       {pages.map((pageCases, pi) => (
         <Page key={pi} size="A4" style={styles.page}>
-          <Text style={styles.sectionLabel}>Your AI Toolkit</Text>
+          <Text style={styles.sectionLabel}>Your NotebookLM Prompts</Text>
           {pageCases.map(uc => {
             const color = CATEGORY_COLOR[uc.cat] || '#0071e3';
             return (

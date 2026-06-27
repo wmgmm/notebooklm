@@ -19,7 +19,7 @@ export function ExportButton() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'NotebookLM-Prompt-Playbook.pdf';
+      a.download = 'The-Matts-NotebookLM-Prompts.pdf';
       a.click();
       URL.revokeObjectURL(url);
     } catch (err) {
@@ -43,9 +43,9 @@ export function ExportButton() {
         cursor: disabled ? 'default' : 'pointer',
         boxShadow: disabled ? 'none' : '0 2px 10px rgba(0,113,227,0.3)',
       }}
-      aria-label={generating ? 'Generating PDF...' : 'Export your playbook as PDF'}
+      aria-label={generating ? 'Generating PDF...' : "Download The Matts' prompt playbook as PDF"}
     >
-      {generating ? 'Generating...' : 'Download prompts as PDF'}
+      {generating ? 'Generating...' : "Download The Matts' PDF"}
     </button>
   );
 }

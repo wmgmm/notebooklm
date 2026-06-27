@@ -90,7 +90,7 @@ export function PromptCard({ uc }: Props) {
         </button>
       </div>
 
-      {/* Add to Toolkit button */}
+      {/* Add to Basket button */}
       <motion.button
         whileTap={{ scale: isSaved ? 1 : 0.96 }}
         onClick={handleAdd}
@@ -103,9 +103,9 @@ export function PromptCard({ uc }: Props) {
           cursor: isSaved ? 'default' : 'pointer',
           boxShadow: isSaved ? 'none' : '0 1px 8px rgba(0,113,227,0.25)',
         }}
-        aria-label={isSaved ? 'Added to toolkit' : `Add ${uc.title} to toolkit`}
+        aria-label={isSaved ? 'Added to basket' : `Add ${uc.title} to basket`}
       >
-        {isSaved ? '✓ Added to Toolkit' : 'Add to Toolkit'}
+        {isSaved ? '✓ Added to Basket' : 'Add to Basket'}
       </motion.button>
     </motion.div>
   );

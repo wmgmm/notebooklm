@@ -36,7 +36,7 @@ export function LandingPage() {
           className="text-5xl md:text-6xl font-bold mb-3"
           style={{ color: 'var(--text-primary)', letterSpacing: '-0.03em', fontFamily: "'Inter', sans-serif" }}
         >
-          NotebookLM Prompt Library
+          The Matts' NotebookLM Prompt Library
         </motion.h1>
 
         <motion.p
@@ -56,7 +56,7 @@ export function LandingPage() {
           className="text-sm max-w-sm lg:max-w-md mb-10"
           style={{ color: 'var(--text-tertiary)' }}
         >
-          Browse by category, search, and build your personal toolkit.
+          Browse by category, search, and build your personal basket.
         </motion.p>
 
         <motion.div

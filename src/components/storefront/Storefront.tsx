@@ -49,14 +49,14 @@ export function Storefront() {
             NotebookLM Prompt Library
           </h1>
 
-          {/* Toolkit / basket button */}
+          {/* Basket / checkout button */}
           <button
             onClick={() => setToolkitOpen(true)}
             className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold transition-colors"
             style={{ background: 'var(--apple-blue)', color: '#fff', border: 'none', cursor: 'pointer' }}
-            aria-label={`Open toolkit (${savedCases.length} saved)`}
+            aria-label={`Open basket (${savedCases.length} saved)`}
           >
-            🧰 Toolkit
+            🧺 Checkout
             {savedCases.length > 0 && (
               <motion.span
                 key={savedCases.length}
