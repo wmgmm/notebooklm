@@ -72,6 +72,13 @@ export const useCases: UseCase[] = [
     prompt: "Do not summarise what is in these documents. Instead, analyse them to identify the 'White Space' or missing information. What obvious questions are left unanswered? What opposing viewpoints or variables are completely ignored? List 5 specific blind spots, limitations, or gaps in the provided research, and explain why their absence matters.",
   },
   {
+    id: 42,
+    cat: "Analysis",
+    title: "Module Gap Analysis",
+    desc: "Upload the module handbook and the student feedback report to find the biggest gaps between what a module intends and what students actually experienced.",
+    prompt: "The [module handbook] sets out the learning outcomes and assessment criteria. The [student feedback report] shows how students actually performed and what they found difficult. Where are the biggest gaps between what the module intends and what students experienced? Cite specific sections from both documents.",
+  },
+  {
     id: 7,
     cat: "Analysis",
     title: "Debate Both Sides of an Issue",
