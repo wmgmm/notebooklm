@@ -45,7 +45,7 @@ export function ExportButton() {
       }}
       aria-label={generating ? 'Generating PDF...' : "Download The Matts' prompt playbook as PDF"}
     >
-      {generating ? 'Generating...' : "Download The Matts' PDF"}
+      {generating ? 'Generating...' : 'Download PDF'}
     </button>
   );
 }
