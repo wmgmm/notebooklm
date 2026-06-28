@@ -11,6 +11,7 @@ interface Props {
 export function PromptCard({ uc }: Props) {
   const { savedCases, addToToolkit } = useAppStore();
   const [copied, setCopied] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const isSaved = savedCases.some(s => s.id === uc.id);
   const catColor = CATEGORY_COLOR[uc.cat];
 
@@ -75,12 +76,32 @@ export function PromptCard({ uc }: Props) {
         <p className="text-[10px] lg:text-xs font-semibold uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-tertiary)' }}>
           Prompt
         </p>
-        <p
-          className="hide-scrollbar text-xs lg:text-sm font-mono leading-relaxed whitespace-pre-wrap"
-          style={{ color: 'var(--text-primary)', maxHeight: '11rem', overflowY: 'auto' }}
+        <div className="relative">
+          <p
+            className="text-xs lg:text-sm font-mono leading-relaxed whitespace-pre-wrap"
+            style={
+              expanded
+                ? { color: 'var(--text-primary)' }
+                : { color: 'var(--text-primary)', display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical', overflow: 'hidden' }
+            }
+          >
+            {uc.prompt}
+          </p>
+          {!expanded && (
+            <div
+              className="absolute bottom-0 left-0 right-0 h-6 pointer-events-none"
+              style={{ background: 'linear-gradient(to bottom, transparent, var(--bg-page))' }}
+            />
+          )}
+        </div>
+        <button
+          onClick={() => setExpanded(v => !v)}
+          className="mt-2 text-xs font-semibold"
+          style={{ color: 'var(--apple-blue)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          aria-expanded={expanded}
         >
-          {uc.prompt}
-        </p>
+          {expanded ? 'Show less ▴' : 'Show full prompt ▾'}
+        </button>
         <button
           onClick={copyPrompt}
           className="absolute top-3 right-3 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity"

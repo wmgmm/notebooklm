@@ -122,6 +122,16 @@ export function Storefront() {
         </div>
       </div>
 
+      {/* How to use strip */}
+      <div className="max-w-6xl mx-auto px-4 pt-2">
+        <div
+          className="rounded-xl px-4 py-3 text-xs lg:text-sm"
+          style={{ background: 'rgba(0,113,227,0.05)', border: '1px solid var(--border)', color: 'var(--text-secondary)', lineHeight: 1.55 }}
+        >
+          <strong style={{ color: 'var(--text-primary)' }}>How to use:</strong> paste a prompt into NotebookLM's <strong style={{ color: 'var(--text-primary)' }}>chat</strong> to ask things directly (try <em>"quiz me on my sources"</em>), or into <strong style={{ color: 'var(--text-primary)' }}>Studio &rarr; Customise</strong> to shape slides, infographics or video. Many work in both, so experiment and stack several together.
+        </div>
+      </div>
+
       {/* Results count */}
       <div className="max-w-6xl mx-auto px-4 pt-4 pb-1">
         <p className="text-xs lg:text-sm" style={{ color: 'var(--text-tertiary)' }}>

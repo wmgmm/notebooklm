@@ -8,6 +8,7 @@ import { ExportButton } from '../shared/ExportButton';
 function BasketItem({ uc }: { uc: UseCase }) {
   const removeFromToolkit = useAppStore(s => s.removeFromToolkit);
   const [copied, setCopied] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const copyPrompt = () => {
     navigator.clipboard.writeText(uc.prompt).then(() => {
@@ -49,26 +50,48 @@ function BasketItem({ uc }: { uc: UseCase }) {
         </button>
       </div>
 
-      <p
-        className="hide-scrollbar text-xs font-mono leading-relaxed whitespace-pre-wrap"
-        style={{ color: 'var(--text-secondary)', maxHeight: '7rem', overflowY: 'auto' }}
-      >
-        {uc.prompt}
-      </p>
+      <div className="relative">
+        <p
+          className="text-xs font-mono leading-relaxed whitespace-pre-wrap"
+          style={
+            expanded
+              ? { color: 'var(--text-secondary)' }
+              : { color: 'var(--text-secondary)', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }
+          }
+        >
+          {uc.prompt}
+        </p>
+        {!expanded && (
+          <div
+            className="absolute bottom-0 left-0 right-0 h-5 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, transparent, var(--bg-page))' }}
+          />
+        )}
+      </div>
 
-      <button
-        onClick={copyPrompt}
-        className="self-start mt-0.5 text-xs font-semibold rounded-full px-3 py-1 transition-colors"
-        style={{
-          background: copied ? 'rgba(52,199,89,0.12)' : 'rgba(0,113,227,0.10)',
-          color: copied ? 'var(--apple-green)' : 'var(--apple-blue)',
-          border: 'none',
-          cursor: 'pointer',
-        }}
-        aria-label={`Copy the ${uc.title} prompt`}
-      >
-        {copied ? '✓ Copied' : 'Copy prompt'}
-      </button>
+      <div className="flex items-center gap-3 mt-0.5">
+        <button
+          onClick={copyPrompt}
+          className="text-xs font-semibold rounded-full px-3 py-1 transition-colors"
+          style={{
+            background: copied ? 'rgba(52,199,89,0.12)' : 'rgba(0,113,227,0.10)',
+            color: copied ? 'var(--apple-green)' : 'var(--apple-blue)',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+          aria-label={`Copy the ${uc.title} prompt`}
+        >
+          {copied ? '✓ Copied' : 'Copy prompt'}
+        </button>
+        <button
+          onClick={() => setExpanded(v => !v)}
+          className="text-xs font-semibold"
+          style={{ color: 'var(--apple-blue)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          aria-expanded={expanded}
+        >
+          {expanded ? 'Show less ▴' : 'Show full prompt ▾'}
+        </button>
+      </div>
     </motion.div>
   );
 }
